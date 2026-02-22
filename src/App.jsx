@@ -49,9 +49,19 @@ export default function App() {
 
       education: [
         {
-          degree: "B.Tech-CSE",
-          college: "NIST UNIVERSITY ",
+          degree: "B.Tech - CSE",
+          college: "NIST University",
           year: "2024 - 2028",
+        },
+        {
+          degree: "Intermediate",
+          college: "SR DAV PUBLIC SCHOOL , PUNDAG , RANCHI",
+          year: "2022 - 2024",
+        },
+        {
+          degree: "Matriculation",
+          college: "SR DAV PUBLIC SCHOOL , PUNDAG , RANCHI",
+          year: "2020 - 2022",
         },
       ],
 
