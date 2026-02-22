@@ -13,9 +13,8 @@ export default function App() {
       email: "sawankumar2823@gmail.com",
       github: "https://github.com/sawankumar2823-ship-it",
       linkedin: "https://www.linkedin.com/in/sawan-kumar-57338932b",
-
-      resume: "/Sawan_Resume.pdf",
-      profilePhoto: "/profile.jpg",
+      profilePhoto: "profile.jpg",
+      resume: "Sawan_Resume.pdf",
 
       skills: [
         "Python",
