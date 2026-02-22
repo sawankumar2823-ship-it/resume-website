@@ -8,10 +8,7 @@ This portfolio highlights my skills, projects, education, and contact informatio
 
 ## 🌐 Live Demo
 
-🔗 (Add your GitHub Pages link here after deployment)
-
-Example:
-https://yourusername.github.io/resume-website/
+🔗https://sawankumar2823-ship-it.github.io/resume-website/
 
 ---
 
