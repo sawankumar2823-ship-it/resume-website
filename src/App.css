@@ -12,54 +12,70 @@ html {
     min-height: 100vh;
     color: white;
     transition: background 0.5s ease;
+    backdrop-filter: blur(40px);
+
+    display: flex;
+    flex-direction: column;
 }
 
-/* 4 Gradient Themes */
 /* ============================= */
 /*           THEMES              */
 /* ============================= */
 
-/* 1️⃣ Aurora – Black + Dark Red */
 .theme-aurora {
     background:
         radial-gradient(circle at top left, #2a0000, #000000 70%),
         linear-gradient(135deg, #000000, #420d09, #000000);
+
+    --glow1: rgba(255, 60, 60, 0.35);
+    --glow2: rgba(120, 0, 0, 0.35);
 }
 
-/* 2️⃣ Sunset – Navy + Orange + Red */
 .theme-sunset {
     background:
         radial-gradient(circle at top left, #140606, #000000 70%),
         linear-gradient(135deg, #0f172a, #fb923c, #ef4444);
+
+    --glow1: rgba(251, 146, 60, 0.45);
+    --glow2: rgba(239, 68, 68, 0.45);
 }
 
-/* 3️⃣ Ocean – Dark Blue + Cyan */
 .theme-ocean {
     background:
         radial-gradient(circle at top left, #02141c, #000000 70%),
         linear-gradient(135deg, #06121a, #06b6d4, #2563eb);
+
+    --glow1: rgba(6, 182, 212, 0.45);
+    --glow2: rgba(37, 99, 235, 0.45);
 }
 
-/* 4️⃣ Neon – Dark Indigo + Pink */
 .theme-neon {
     background:
         radial-gradient(circle at top left, #10061f, #000000 70%),
         linear-gradient(135deg, #0a061a, #312e81, #be185d);
+
+    --glow1: rgba(99, 102, 241, 0.45);
+    --glow2: rgba(236, 72, 153, 0.45);
 }
+
 .container {
     width: 90%;
     max-width: 1100px;
     margin: auto;
     font-family: Arial, sans-serif;
 }
+body {
+    background: #000;
+}
 
 /* Navbar */
+
 .navbar {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -74,7 +90,6 @@ html {
 .logo {
     font-size: 18px;
     font-weight: 900;
-    letter-spacing: 0.3px;
 }
 
 .nav-links {
@@ -93,14 +108,11 @@ html {
     color: white;
 }
 
-/* ============================= */
-/*        THEME BUTTONS          */
-/* ============================= */
+/* Theme Buttons */
 
 .theme-switch {
     display: flex;
     gap: 12px;
-    align-items: center;
 }
 
 .theme-btn {
@@ -110,7 +122,6 @@ html {
     border: 2px solid rgba(255, 255, 255, 0.35);
     cursor: pointer;
     transition: all 0.25s ease;
-    padding: 0;
 }
 
 .theme-btn:hover {
@@ -120,31 +131,26 @@ html {
 .theme-btn.active {
     border: 2px solid white;
     transform: scale(1.25);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
-/* Match YOUR gradients */
-
-/* Aurora (black + dark red) */
 .theme-btn:nth-child(1) {
-    background: linear-gradient(135deg, #000000, #420d09, #000000);
+    background: linear-gradient(135deg, #000, #420d09, #000);
 }
 
-/* Sunset */
 .theme-btn:nth-child(2) {
     background: linear-gradient(135deg, #0f172a, #fb923c, #ef4444);
 }
 
-/* Ocean */
 .theme-btn:nth-child(3) {
     background: linear-gradient(135deg, #0f172a, #06b6d4, #2563eb);
 }
 
-/* Neon (dark blue + pink) */
 .theme-btn:nth-child(4) {
     background: linear-gradient(135deg, #0f172a, #312e81, #be185d);
 }
+
 /* Hero */
+
 .hero {
     padding: 75px 0;
 }
@@ -159,7 +165,6 @@ html {
 .hero h1 {
     font-size: 46px;
     font-weight: 900;
-    line-height: 1.05;
 }
 
 .hero p {
@@ -169,12 +174,14 @@ html {
 }
 
 /* Buttons */
+
 .btn-row {
     margin-top: 22px;
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
 }
+
+/* Buttons */
 
 .btn {
     padding: 11px 18px;
@@ -182,9 +189,12 @@ html {
     font-weight: 800;
     text-decoration: none;
     border: 1px solid transparent;
-    transition: 0.2s;
     font-size: 14px;
+    transition: all 0.25s ease;
+    position: relative;
 }
+
+/* Primary */
 
 .btn-primary {
     background: white;
@@ -192,49 +202,85 @@ html {
 }
 
 .btn-primary:hover {
-    opacity: 0.9;
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 15px var(--glow1),
+        0 0 30px var(--glow2);
 }
 
+/* Outline */
+
 .btn-outline {
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
 }
 
 .btn-outline:hover {
+    transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 0 15px var(--glow1),
+        0 0 30px var(--glow2);
 }
+
+/* Glow Button */
 
 .btn-glow {
     background: linear-gradient(135deg, #6366f1, #ec4899);
     color: white;
-    border: none;
 }
 
 .btn-glow:hover {
-    opacity: 0.9;
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 20px var(--glow1),
+        0 0 40px var(--glow2);
 }
 
 /* Cards */
+
 .card {
     border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 22px;
-    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.35);
-    transition: 0.2s;
-}
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
-/* Floating Tilt */
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(18px);
+
+    padding: 22px;
+
+    transition: all 0.35s ease;
+
+    /* minimal shadow initially */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+/* 3D Tilt Effect */
+
 .tilt-card {
     transform-style: preserve-3d;
     will-change: transform;
+    transition: transform 0.25s ease;
 }
 
 .tilt-card:hover {
-    box-shadow: 0px 18px 45px rgba(0, 0, 0, 0.5);
+    transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-6px);
+}
+
+/* Glow appears only on hover */
+
+.card:hover {
+    transform: translateY(-8px) scale(1.01);
+
+    box-shadow:
+        0 0 25px var(--glow1),
+        0 0 50px var(--glow2),
+        0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 /* Profile */
+
 .profile {
     display: flex;
     gap: 14px;
@@ -245,7 +291,6 @@ html {
     width: 66px;
     height: 66px;
     border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
     object-fit: cover;
 }
 
@@ -257,10 +302,10 @@ html {
 .small {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.65);
-    word-break: break-word;
 }
 
 /* Sections */
+
 .section {
     padding: 55px 0;
 }
@@ -273,10 +318,10 @@ html {
 .section p {
     margin-top: 10px;
     color: rgba(255, 255, 255, 0.75);
-    line-height: 1.75;
 }
 
 /* Skills */
+
 .skills {
     margin-top: 20px;
     display: flex;
@@ -287,12 +332,11 @@ html {
 .skill {
     padding: 10px 14px;
     border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.04);
-    font-size: 14px;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 /* Projects */
+
 .projects {
     margin-top: 22px;
     display: grid;
@@ -302,7 +346,6 @@ html {
 
 .project-title {
     font-weight: 900;
-    font-size: 18px;
 }
 
 .tags {
@@ -324,45 +367,76 @@ html {
     margin-top: 14px;
     font-weight: bold;
     color: #a5b4fc;
-    text-decoration: none;
 }
 
-.project-link:hover {
-    text-decoration: underline;
+/* Chatbot */
+
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 260px;
+
+    border-radius: 16px;
+
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 0 18px var(--glow1),
+        0 0 35px var(--glow2);
 }
 
-/* Certificates */
-.cert-grid {
-    margin-top: 18px;
-    display: grid;
-    gap: 12px;
-    grid-template-columns: repeat(2, 1fr);
+.chat-window {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
 }
 
-/* Contact */
-.contact-card {
-    text-align: center;
+.user {
+    text-align: right;
+    margin: 6px 0;
+    color: #8ab4ff;
 }
 
-/* Footer */
-.footer {
-    padding: 18px 0;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.55);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+.bot {
+    text-align: left;
+    margin: 6px 0;
+    color: white;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: #000;
+    color: white;
+}
+
+.chat-input button {
+    padding: 8px 12px;
+    border: none;
+    background: #6366f1;
+    color: white;
+    cursor: pointer;
 }
 
 /* Responsive */
+
 @media (max-width: 900px) {
     .hero-grid {
         grid-template-columns: 1fr;
     }
 
     .projects {
-        grid-template-columns: 1fr;
-    }
-
-    .cert-grid {
         grid-template-columns: 1fr;
     }
 
@@ -374,71 +448,57 @@ html {
         font-size: 36px;
     }
 }
-/* CLICKABLE PHOTO */
-.clickable-photo {
-    cursor: pointer;
-    transition: 0.2s;
-}
+.footer {
+    padding: 18px 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-.clickable-photo:hover {
-    transform: scale(1.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-/* PHOTO MODAL */
+main {
+    flex: 1;
+}
 .photo-modal {
     position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
+
+    padding: 40px;
+
+    z-index: 9999;
 }
 
 .photo-modal-inner {
     position: relative;
-    max-width: 600px;
-    width: 100%;
-    border-radius: 22px;
+
+    max-width: 90vw;
+    max-height: 90vh;
+
+    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
     background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(12px);
-    animation: popIn 0.2s ease;
-}
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .photo-big {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.photo-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 14px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.photo-close:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-
-@keyframes popIn {
-    from {
-        transform: scale(0.96);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    max-width: 80vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 20px;
 }
